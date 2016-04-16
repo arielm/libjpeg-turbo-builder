@@ -15,7 +15,7 @@ CLANG="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctool
 SDK_LOC="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk" # SDK_DIR
 SCRIPT_ARCHES="armv7 arm64"
 
-FLAGS_ARMV7="-arch armv7 -miphoneos-version-min=8.0 -mfloat-abi=softfp"
+FLAGS_ARMV7="-arch armv7 -miphoneos-version-min=8.0 -mfloat-abi=softfp -fembed-bitcode"
 CFLAGS_ARMV7="-isysroot ${SDK_LOC} -O3 ${FLAGS_ARMV7}"
 CCASFLAGS_ARMV7="-no-integrated-as"
 LDFLAGS_ARMV7="-isysroot ${SDK_LOC} ${FLAGS_ARMV7}"
@@ -23,7 +23,7 @@ FINALFLAGS_ARMV7="--with-simd --with-gas-preprocessor"
 CC_ARMV7="${CLANG}"
 OPTIONS_ARMV7="--host arm-apple-darwin10 --enable-static --disable-shared"
 
-FLAGS_ARM64="-arch arm64 -miphoneos-version-min=8.0"
+FLAGS_ARM64="-arch arm64 -miphoneos-version-min=8.0 -fembed-bitcode"
 CFLAGS_ARM64="-isysroot ${SDK_LOC} -O3 ${FLAGS_ARM64}"
 CCASFLAGS_ARM64=""
 LDFLAGS_ARM64="-isysroot ${SDK_LOC} ${FLAGS_ARM64}"
